@@ -1,0 +1,71 @@
+<!-- <php 
+
+  session_start();
+  if(isset($_SESSION['unique_id'])){
+    header("location: homePage.php");
+  }
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Strath's Safe Haven | papaB33</title>
+            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+        </head>
+
+        <body > 
+            <div class="wrapper">
+            <section class="form signup">
+                <header>Strath's Safe Haven</header>
+                <!--<form action="#" method="post" enctype="multipart/form-data" autocomplete="off"> -->
+                <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off"> 
+                <div class="error-text"></div>
+                <div class="name-details">
+                    <div class="field input">
+                    <!--change to code in line 2 only-->
+                    <label>First Name</label>
+                    <input type="text" name="fname" placeholder="First name" required>
+                    </div>
+                    <div class="field input">
+                    <label>Last Name</label>
+                    <!--change to code in line 4 only-->
+                    <input type="text" name="lname" placeholder="Last name" required>
+                    </div>
+                </div>
+                <div class="field input">
+                    <label>Email Address</label>
+                    <!--change to code in line 5 only-->
+                    <input type="text" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="field input">
+                    <label>Password</label>
+                    <!--change to code in line 3 only-->
+                    <input type="password" name="password" placeholder="Enter new password" required>
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="field image">
+                    <label>Select Image</label>
+                    <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
+                </div>
+                <div class="field button">
+                    <!--<input type="submit" name="submit" value="Continue to Chat">-->
+                    <input type="submit" name="submit" value="Continue to Home Page" style="border-color: #ffc107; background-color: #ffc107; color: #000;" onmouseover="this.style.height='45px'; this.style.borderColor='#ffc720'; this.style.color='#000'; this.style.fontSize='17px'; this.style.backgroundColor='#ffca2c'; this.style.borderRadius='5px'; this.style.cursor='pointer'; this.style.marginTop='13px';" onmouseout="this.style.height='45px'; this.style.borderColor='#ffc107'; this.style.color='#000'; this.style.fontSize='17px'; this.style.backgroundColor='#ffc107'; this.style.borderRadius='5px'; this.style.cursor='pointer'; this.style.marginTop='13px';"><!--style="background: #FFB000; color: black;"-->
+                
+                </div>
+                </form>
+                <div class="link">Already signed up? <a href="login.php">Login now</a></div>
+            </section>
+            </div>
+        
+            <!--<script src="javascript/pass-show-hide.js"></script>-->
+            <script src="pass-show-hide.js"></script>
+            <!--<script src="javascript/signup.js"></script>-->
+            <script src="signup.js"></script>
+        
+        </body>
+  </html>

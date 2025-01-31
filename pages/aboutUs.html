@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel app</title>
+    <style>
+        *{
+                margin: 0;
+                box-sizing:border-box ;
+                padding: 0;
+                list-style: none;
+                text-decoration: none;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            body{
+                background: #f3f5f9;
+                height: 1000px;
+            }
+
+            .wrapper{
+                display: flex;
+                position: relative;
+            }
+
+            .wrapper .sideBar{
+                position: fixed;/*please confirm naishuku!!*/
+                width: 200px;
+                height: 100%;
+                background:#4b4276 ;
+                padding: 30px 0;
+            }
+
+            .wrapper .sideBar h2{
+                color:#fff ;
+                text-transform:uppercase ;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .wrapper .sideBar ul li{
+                padding: 15px;
+                border-bottom:1px solid rgba(0,0, 0,0.05) ;
+                border-top: 1px solid rgba(255,255, 255,0.05) ;
+
+            }
+
+            .wrapper .sideBar ul li a{
+                color:#bdb8d7;
+                display: block;
+            }
+
+            .wrapper .sideBar ul li a i{ 
+                width: 25px;
+            }
+
+            .wrapper .sideBar ul li:hover{
+                background:#594f8d ;
+            }
+
+            .wrapper .sideBar ul li:hover a{
+                color:#fff ;
+            }
+
+            .wrapper .sideBar .socialMedia{
+                position: absolute;
+                bottom: 0;
+                left: 50% ;
+                transform: translateX(-50%);
+                display:flex ;
+            }
+
+            .wrapper .sideBar .socialMedia a{
+                display: block;
+                width: 25px;
+                background: #594f8d ;
+                height:40px ;
+                line-height:40px ;
+                text-align: center;
+                margin: 0 5px;
+                color: #bdb8d7;
+                border-top-right-radius:5px ;
+                border-bottom-left-radius:  5px; 
+            }
+
+            .wrapper .mainContent{
+                width: 100%;
+                margin-left: 200px;
+            }
+
+            .wrapper .mainContent .header{
+                padding: 15px;
+                background:#fff ;
+                color: #bdb8d7;
+                border-bottom:1px solid #e0e4e8  ;
+            }
+
+            .wrapper .mainContent .info{
+                margin: 20px;
+                color:#717171 ;
+                line-height: 25px;
+            }
+
+            .wrapper .mainContent .info div{
+                margin-bottom: 20px;
+            }
+
+
+        *{
+    margin: 0;
+    padding: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.banner{
+    width: 100%;
+    height: 1000px;/*height: 100vh;*/
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.75)),url(socialPhobiaResources.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li{
+    text-decoration: none;
+    color: whitesmoke;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: blue;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+
+}
+.navbar ul li:hover:after{
+    width: 100%;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <ul>
+                <li class="right"><a href="signUp.php"></a></li>
+                <li class="right"><a href= "upcomingEvents.php"></a></li>
+                <li class="right"><a href="homePage.php"></a></li>
+                <li class="right"><a href="login.php"></a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <h1>About Strath's Safe Haven</h1>
+            <p>Welcome to Strath's Safe Haven, a dedicated space within Strathmore University designed to support students dealing with social anxiety disorder. Our mission is to provide a nurturing environment where students can access resources and connect with therapists to effectively manage their challenges.</p>
+            <p>At Strath's Safe Haven, we understand the importance of a supportive community and personalized care.</p>
+            <br><br>
+            <h2>What to expect from our platform:</h2>
+            <ul>  
+               <li><strong>User Profile Setup:</strong> Upon joining, users can create personalized profiles to tailor their experience to their specific needs and preferences. This ensures that the resources and support they receive are aligned with their individual requirements.</li>
+              <br>
+              <li><strong>Therapist Appointment Scheduling: </strong>We offer a seamless appointment scheduling system that allows users to book sessions with experienced therapists at their convenience. Whether you prefer face-to-face sessions or virtual consultations, our platform accommodates your preferences.</li>
+              <br>
+              <li><strong>In-App Chat with Therapists:</strong>We prioritize accessibility and real-time support. Through our secure messaging feature, users can engage in confidential conversations with qualified therapists directly within the application. This fosters a safe space for open dialogue and personalized guidance.</li>
+              <br>
+              <li><strong>Inspiration and Coping Mechanisms:</strong>Strath's Safe Haven isn't just about seeking professional help—it's also about building resilience and fostering a positive mindset. Our platform features a curated collection of inspirational quotes and coping mechanisms, contributed by peer mentors who understand the challenges of social anxiety firsthand. These resources serve as daily reminders of strength and encouragement for our users.</li>
+            </ul>
+            <br>
+            <p>At Strath's Safe Haven, we're committed to empowering students to navigate their social anxiety with confidence and resilience. Whether you're seeking professional guidance, peer support, or simply a source of inspiration, our platform is here to help you on your journey towards mental wellness. Join our community today and take the first step towards a brighter, more empowered future.</p>
+            <br>
+            <a href="homePage.php"style="border-color: #ffc107; background-color: #ffc107; color: #000;" onmouseover="this.style.height='45px'; this.style.borderColor='#ffc720'; this.style.color='#000'; this.style.fontSize='17px'; this.style.backgroundColor='#ffca2c'; this.style.borderRadius='5px'; this.style.cursor='pointer'; this.style.marginTop='13px';" onmouseout="this.style.height='45px'; this.style.borderColor='#ffc107'; this.style.color='#000'; this.style.fontSize='17px'; this.style.backgroundColor='#ffc107'; this.style.borderRadius='5px'; this.style.cursor='pointer'; this.style.marginTop='13px';">Home</a>
+        </div>
+</body>
+</html>
