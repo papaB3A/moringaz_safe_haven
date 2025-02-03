@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    box-sizing:border-box ;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* body{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.75)), url("../../public/images/socialPhobiaResources.jpg");
+    background: #f3f5f9;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1000px;
+} */
+
+.wrapper{
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sideBar{
+    position: fixed;/*please confirm naishuku!!*/
+    width: 200px;
+    height: 100%;
+    background:#4b4276 ;
+    padding: 30px 0;
+}
+
+.wrapper .sideBar h2{
+    color:#fff ;
+    text-transform:uppercase ;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.wrapper .sideBar ul li{
+    padding: 15px;
+    border-bottom:1px solid rgba(0,0, 0,0.05) ;
+    border-top: 1px solid rgba(255,255, 255,0.05) ;
+
+}
+
+.wrapper .sideBar ul li a{
+    color:#bdb8d7;
+    display: block;
+}
+
+.wrapper .sideBar ul li a i{ 
+    width: 25px;
+}
+
+.wrapper .sideBar ul li:hover{
+    background:#594f8d ;
+}
+
+.wrapper .sideBar ul li:hover a{
+    color:#fff ;
+}
+
+.wrapper .sideBar .socialMedia{
+    position: absolute;
+    bottom: 0;
+    left: 50% ;
+    transform: translateX(-50%);
+    display:flex ;
+}
+
+.wrapper .sideBar .socialMedia a{
+    display: block;
+    width: 25px;
+    background: #594f8d ;
+    height:40px ;
+    line-height:40px ;
+    text-align: center;
+    margin: 0 5px;
+    color: #bdb8d7;
+    border-top-right-radius:5px ;
+    border-bottom-left-radius:  5px; 
+}
+
+.wrapper .mainContent{
+    width: 100%;
+    margin-left: 200px;
+}
+
+.wrapper .mainContent .header{
+    padding: 15px;
+    background:#fff ;
+    color: #bdb8d7;
+    border-bottom:1px solid #e0e4e8  ;
+}
+
+.wrapper .mainContent .info{
+    margin: 20px;
+    color:#717171 ;
+    line-height: 25px;
+}
+
+.wrapper .mainContent .info div{
+    margin-bottom: 20px;
+}
+
+
+*{
+margin: 0;
+padding: 0;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/* .banner{
+width: 100%;
+height: 1000px;
+background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.75)),url(socialPhobiaResources.jpg);
+background-size: cover;
+background-position: center;
+} */
+.navbar{
+width: 85%;
+margin: auto;
+padding: 35px 0;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.navbar ul li{
+list-style: none;
+display: inline-block;
+margin: 0 20px;
+position: relative;
+}
+.navbar ul li{
+text-decoration: none;
+color: whitesmoke;
+text-transform: uppercase;
+}
+.navbar ul li::after{
+content: '';
+height: 3px;
+width: 0%;
+background: blue;
+position: absolute;
+left: 0;
+bottom: -10px;
+transition: 0.5s;
+
+}
+.navbar ul li:hover:after{
+width: 100%;
+}
+.container {
+max-width: 800px;
+margin: 20px auto;
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+text-align: center;
+}
+
+.home-button{
+    border-color: #ffc107; 
+    background-color: #ffc107; 
+    color: #000; 
+    height: 45px;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 13px;
+    text-decoration: none;
+    padding: 10px;
+    /* onmouseover="this.style.height='45px'; this.style.borderColor='#ffc720'; this.style.color='#000'; this.style.fontSize='17px'; this.style.backgroundColor='#ffca2c'; this.style.borderRadius='5px'; this.style.cursor='pointer'; this.style.marginTop='13px';" 
+    onmouseout="this.style.height='45px'; this.style.borderColor='#ffc107'; this.style.color='#000'; this.style.fontSize='17px'; this.style.backgroundColor='#ffc107'; this.style.borderRadius='5px'; this.style.cursor='pointer'; this.style.marginTop='13px';" */
+}
+
+.home-button:hover{
+    border-color: #ffc720;
+    /* color: #000; */
+    /* font-size: 17px; */
+    background-color: #ffca2c;
+    /* border-radius: 5px; */
+    /* cursor: pointer; */
+    /* margin-top: 13px; */
+}
+
+/* .banner{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.75)), url("../../public/images/socialPhobiaResources.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+.about-wrapper{
+    width: 100vw;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.75)), url("../../images/socialPhobiaResources.jpg");
+    /* background: #f3f5f9; */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1000px;
+}
