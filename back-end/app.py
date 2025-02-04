@@ -9,6 +9,15 @@ import os
 import uuid
 from sqlalchemy import or_
 
+# DB_NAME=postgres
+# DB_USER=postgres.spnbhbhyttenrrhiaamh
+# DB_PASSWORD=4Y9qm0DlmWmSgw9r
+# DB_HOST=aws-0-ap-south-1.pooler.supabase.com
+# DB_PORT=5432
+
+# JWT_SECRET_KEY=super-secret
+
+# REACT_APP_API_URL=https://moringaz-safe-haven-backend.onrender.com
 
 #.env
 # load the environmental variable from .env file
@@ -28,6 +37,9 @@ DB_CONFIG={
 # Database Configuration
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@localhost/dbname'
 app.config['SQLALCHEMY_DATABASE_URI']=f"postgresql://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['dbname']}"
+
+# app.config['SQLALCHEMY_DATABASE_URI']= os.getenv("REACT_APP_API_URL")
+
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["JWT_SECRET_KEY"] =os.getenv("JWT_SECRET_KEY") # Change this in production
 
