@@ -7,6 +7,7 @@ from datetime import timedelta
 from dotenv import load_dotenv
 import os
 import uuid
+from sqlalchemy import or_
 
 
 #.env
@@ -51,6 +52,18 @@ class User(db.Model):
     def __repr__(self):
         return f"<User {self.email}>"
 
+# Message Model
+class Message(db.Model):
+    __tablename__ = 'messages'
+
+    msg_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    incoming_msg_id = db.Column(db.String, db.ForeignKey('users.unique_id'), nullable=False)
+    outgoing_msg_id = db.Column(db.String, db.ForeignKey('users.unique_id'), nullable=False)
+    msg = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.TIMESTAMP, default=db.func.current_timestamp())
+
+    def __repr__(self):
+        return f"<Message {self.msg_id} from {self.incoming_msg_id} to {self.outgoing_msg_id}>"
 
 # # Create the database tables if they don't exist
 # with app.app_context():
@@ -204,7 +217,122 @@ def get_users():
     except Exception as e:
         app.logger.error(f"Error fetching users: {e}")
         return jsonify({"error": "Internal Server Error"}), 500
-    
+
+# route for sending message in the chatbox
+@app.route('/send_message', methods=['POST'])
+@jwt_required()
+def send_message():
+    try:
+        data = request.json
+        outgoing_id = data.get("outgoing_id")
+        msg_content = data.get("msg")
+        
+        # Validate input
+        if not outgoing_id or not msg_content:
+            return jsonify({"error": "Missing recipient or message content"}), 400
+
+        # Get the sender's unique_id from the token
+        incoming_id = get_jwt_identity()
+
+        # Verify both sender and receiver exist in the database
+        sender = User.query.filter_by(unique_id=incoming_id).first()
+        receiver = User.query.filter_by(unique_id=outgoing_id).first()
+        
+        if not sender or not receiver:
+            return jsonify({"error": "Invalid sender or recipient"}), 404
+
+        # Save the message to the database
+        new_message = Message(
+            incoming_msg_id=incoming_id,
+            outgoing_msg_id=outgoing_id,
+            msg=msg_content
+        )
+        db.session.add(new_message)
+        db.session.commit()
+
+        return jsonify({"message": "Message sent successfully"}), 201
+
+    except Exception as e:
+        app.logger.error(f"Error sending message: {e}")
+        return jsonify({"error": "Internal Server Error"}), 500
+
+# route for getting messages
+@app.route("/get_messages", methods=["POST"])
+@jwt_required()
+def get_messages():
+    # Parse data from the request
+    incoming_msg_id = request.json.get("incoming_msg_id")
+    current_user_id = get_jwt_identity()
+    # outgoing_msg_id = get_jwt_identity()
+
+    # Validate input
+    if not incoming_msg_id:
+        return jsonify({"error": "Missing incoming_msg_id"}), 400
+
+    # Query messages between the logged-in user and the target user
+    messages = Message.query.filter(
+        ((Message.incoming_msg_id == current_user_id) & (Message.outgoing_msg_id == incoming_msg_id)) |
+        ((Message.incoming_msg_id == incoming_msg_id) & (Message.outgoing_msg_id == current_user_id))
+        # db.or_(
+        #     db.and_(Message.incoming_msg_id == incoming_msg_id, Message.outgoing_msg_id == outgoing_msg_id),
+        #     db.and_(Message.incoming_msg_id == outgoing_msg_id, Message.outgoing_msg_id == incoming_msg_id)
+        # )
+    ).order_by(Message.created_at).all()
+
+    # Format messages for response
+    chat_messages = [
+        {
+            "sender_id": msg.outgoing_msg_id,
+            "receiver_id": msg.incoming_msg_id,
+            "message": msg.msg,
+            "timestamp": msg.created_at.strftime("%Y-%m-%d %H:%M:%S")
+        }
+        for msg in messages
+    ]
+
+    return jsonify({"messages": chat_messages})
+
+
+# @app.route('/send_message', methods=['POST'])
+# @jwt_required()
+# def send_message():
+#     try:
+#         # Extract the current user's unique ID from the JWT token
+#         incoming_id = get_jwt_identity()
+
+#         # Extract data from the request JSON
+#         data = request.json
+#         outgoing_id = data.get('outgoing_id')
+#         message = data.get('msg')
+
+#         # Validate required fields
+#         if not all([outgoing_id, message]):
+#             return jsonify({"error": "Outgoing ID and message are required."}), 400
+
+#         # Ensure the sender and receiver are valid users
+#         sender = User.query.filter_by(unique_id=incoming_id).first()
+#         receiver = User.query.filter_by(unique_id=outgoing_id).first()
+        
+#         if not sender:
+#             return jsonify({"error": "Sender not found."}), 404
+#         if not receiver:
+#             return jsonify({"error": "Receiver not found."}), 404
+
+#         # Save the message to the database
+#         new_message = Message(
+#             incoming_msg_id=incoming_id,
+#             outgoing_msg_id=outgoing_id,
+#             msg=message
+#         )
+#         db.session.add(new_message)
+#         db.session.commit()
+
+#         return jsonify({"message": "Message sent successfully."}), 201
+
+#     except Exception as e:
+#         app.logger.error(f"Error sending message: {e}")
+#         return jsonify({"error": "Internal Server Error"}), 500
+       
 # @app.route('/', methods=['GET'])
 # @jwt_required()
 # def home():
