@@ -10,10 +10,13 @@ blinker==1.8.2
     # via
     #   -r requirements.in
     #   flask
+build==1.2.2.post1
+    # via pip-tools
 click==8.1.8
     # via
     #   -r requirements.in
     #   flask
+    #   pip-tools
 flask==3.0.3
     # via
     #   -r requirements.in
@@ -30,9 +33,12 @@ greenlet==3.1.1
     # via
     #   -r requirements.in
     #   sqlalchemy
+gunicorn==23.0.0
+    # via -r requirements.in
 importlib-metadata==8.5.0
     # via
     #   -r requirements.in
+    #   build
     #   flask
 itsdangerous==2.2.0
     # via
@@ -47,18 +53,34 @@ markupsafe==2.1.5
     #   -r requirements.in
     #   jinja2
     #   werkzeug
+packaging==24.2
+    # via
+    #   build
+    #   gunicorn
+pip-tools==7.4.1
+    # via -r requirements.in
 psycopg2-binary==2.9.10
     # via -r requirements.in
 pyjwt==2.9.0
     # via
     #   -r requirements.in
     #   flask-jwt-extended
+pyproject-hooks==1.2.0
+    # via
+    #   -r requirements.in
+    #   build
+    #   pip-tools
 python-dotenv==1.0.1
     # via -r requirements.in
 sqlalchemy==2.0.37
     # via
     #   -r requirements.in
     #   flask-sqlalchemy
+tomli==2.2.1
+    # via
+    #   -r requirements.in
+    #   build
+    #   pip-tools
 typing-extensions==4.12.2
     # via
     #   -r requirements.in
@@ -68,6 +90,8 @@ werkzeug==3.0.6
     #   -r requirements.in
     #   flask
     #   flask-jwt-extended
+wheel==0.45.1
+    # via pip-tools
 zipp==3.20.2
     # via
     #   -r requirements.in
