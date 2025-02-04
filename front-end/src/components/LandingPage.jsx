@@ -28,7 +28,7 @@ const slides = [
     description:
       "Scheduling an appointment has never been easier. Our platform allows you to book your therapy sessions seamlessly. Take control of your mental health journey today!",
     icons: ["bi bi-calendar-check-fill", "bi bi-person-lines-fill"],
-    link:"/appointments"
+    link:""
   },
   {
     img: "/images/supportiveCommunity.jpg",
@@ -36,7 +36,7 @@ const slides = [
     description:
       "Scheduling an appointment has never been easier. Our platform allows you to book your therapy sessions seamlessly. Take control of your mental health journey today!",
     icons: ["bi bi-calendar-check-fill", "bi bi-person-lines-fill"],
-    link:"/resources"
+    link:""
   },
   {
     img: "/images/chatTherapySession.jpg",
@@ -89,8 +89,10 @@ export default function LandingPage(){
           <li><a href="users.php">Chats</a></li> */}
           <li><Link to="/profile">Profile</Link></li> 
           <li><Link to="/aboutUs">About Us</Link></li> 
-          <li><Link to="/appointments">Appointments</Link></li> 
-          <li><Link to="/resources">Community</Link></li> 
+          {/* <li><Link to="/appointments">Appointments</Link></li>  */}
+          <li><a href="#">Appointments</a></li>
+          <li><a href="#">Community</a></li>
+          {/* <li><Link to="/resources">Community</Link></li>  */}
           <li><Link to="/chats">Chats</Link></li> 
           {/* <li><a onClick={handleLogout} className="logout-btn">Logout</a></li> */}
           <li><Link to="/login" className="logout-btn" onClick={handleLogout}>Logout</Link></li> 

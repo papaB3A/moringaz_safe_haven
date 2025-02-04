@@ -13,22 +13,23 @@ import AboutUs from './components/AboutUs';
 import Login from './components/Login';
 import ProtectedRoute from "./components/ProtectedRoute";
 import SignUp from './components/SignUp';
+import ChatBox from './components/ChatBox';
+// import Resources from './components/Resources';
 
 export default function App(){
   return (
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<LandingPage />} /> */}
           <Route path="/login" element={<Login />} />
-          <Route path="/sign-up" element={<SignUp/>} />
+          <Route path="/sign-up" element={<SignUp />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<LandingPage />} />
             <Route path="/profile" element={<UserProfile />} />
-            <Route path="/aboutUs" element={<AboutUs/>} />
-            <Route path="/appointments" element="" />
-            <Route path="/resources" element="" />
+            <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="/chats" element={<UsersList />} />
+            <Route path="/chats/:userId" element={<ChatBox />} />
+            {/* <Route path="/resources" element={ <Resources/> } /> */}
           </Route>
         </Routes>
       </BrowserRouter>

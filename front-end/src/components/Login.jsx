@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+  // const API_URL = process.env.REACT_APP_API_URL;
+  // `${API_URL}/get_messages`
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -15,6 +18,8 @@ const Login = () => {
     e.preventDefault();
     setError(""); // Clear previous errors
     try {
+      // "http://localhost:5000/login"
+      // `${API_URL}/login`
       const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: {

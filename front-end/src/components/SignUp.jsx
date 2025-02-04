@@ -4,6 +4,9 @@ import { Helmet } from "react-helmet";
 import "../styles/style.css";
 
 const SignUp = () => {
+  // const API_URL = process.env.REACT_APP_API_URL;
+  // `${API_URL}/get_messages`
+
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',
@@ -41,7 +44,9 @@ const SignUp = () => {
     data.append('img', formData.image);
 
     try {
-      const response = await fetch('http://localhost:5000/signup', {
+      // `${API_URL}/signup`
+      // "http://localhost:5000/signup"
+      const response = await fetch("http://localhost:5000/signup", {
         method: 'POST',
         body: data,
       });

@@ -5,6 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export default function UserProfile() {
+  // const API_URL = process.env.REACT_APP_API_URL;
+  // `${API_URL}/get_messages`
+
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
@@ -22,6 +25,8 @@ export default function UserProfile() {
       }
 
       try {
+        // `${API_URL}/profile`
+        // "http://localhost:5000/profile"
         const response = await axios.get("http://localhost:5000/profile", {
           headers: {
             Authorization: `Bearer ${token}`
